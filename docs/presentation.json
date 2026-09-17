@@ -1,0 +1,114 @@
+{
+  "name": "Muyu",
+  "tagline": "Make your English posts read native — scored, rewritten, verified.",
+  "architecture": {
+    "nodes": [
+      {
+        "title": "muyu CLI",
+        "detail": "score / rewrite / check — one command each"
+      },
+      {
+        "title": "tell library",
+        "detail": "68 rules: collocation · word-order · politeness · AI-cadence"
+      },
+      {
+        "title": "native-tone scorer",
+        "detail": "0-100, deterministic, zero model calls"
+      },
+      {
+        "title": "OpenAI-compatible endpoint",
+        "detail": "DeepSeek · Qwen · GLM · Kimi presets"
+      },
+      {
+        "title": "platform style packs",
+        "detail": "Instagram · TikTok · Substack conventions"
+      },
+      {
+        "title": "before/after + delta",
+        "detail": "segment pairs, per-category delta report"
+      }
+    ],
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        5
+      ]
+    ],
+    "title": "Tell library in, verified native tone out"
+  },
+  "process": {
+    "steps": [
+      {
+        "title": "score",
+        "detail": "offline tell report + 0-100 native-tone score"
+      },
+      {
+        "title": "rewrite",
+        "detail": "segment-by-segment, platform style, locked elements"
+      },
+      {
+        "title": "check",
+        "detail": "re-score the rewrite, verify the delta"
+      }
+    ],
+    "title": "score → rewrite → check, all three on your own draft",
+    "result": "0-100 native-tone score before and after — the delta is the deliverable"
+  },
+  "integrations": {
+    "items": [
+      {
+        "title": "DeepSeek",
+        "detail": "preset endpoint"
+      },
+      {
+        "title": "Qwen",
+        "detail": "preset endpoint"
+      },
+      {
+        "title": "GLM",
+        "detail": "preset endpoint"
+      },
+      {
+        "title": "Kimi",
+        "detail": "preset endpoint"
+      },
+      {
+        "title": "IG · TikTok",
+        "detail": "style packs"
+      },
+      {
+        "title": "Substack",
+        "detail": "style pack"
+      }
+    ],
+    "title": "Endpoints and platform style packs shipped in v0.1.0"
+  }
+}

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "muyu"
+version = "0.1.0"
+description = "The native-tone workbench for overseas Chinese creators: score Chinglish tells, rewrite per platform, verify the delta."
+license = "MIT"
+requires-python = ">=3.12"
+authors = [
+    { name = "SuperMarioYL" },
+]
+keywords = [
+    "chinese-english",
+    "native-tone",
+    "creator-tools",
+    "humanizer",
+    "writing",
+    "cross-lingual",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+muyu = "muyu.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["muyu"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"data/tells" = "muyu/bundled_data/tells"
+"data/platforms" = "muyu/bundled_data/platforms"
+
+[tool.hatch.build.targets.sdist]
+include = ["muyu", "data", "tests", "examples", "docs", "README.md", "README.en.md", "LICENSE", "CHANGELOG.md", "VERSION"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

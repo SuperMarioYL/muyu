@@ -1,0 +1,142 @@
+version: 1
+tells:
+- id: delve-into
+  category: ai-cadence
+  pattern: \bdelv(?:e|es|ed|ing) into\b
+  explanation_zh: AI 高频词 delve；母语者更常说 dig into
+  example_before: Let's delve into the details.
+  example_after: Let's dig into the details.
+  severity: 2
+- id: fast-paced-world
+  category: ai-cadence
+  pattern: \b[Ii]n today'?s fast-paced world\b
+  explanation_zh: AI 开场模板
+  example_before: In today's fast-paced world, focus is rare.
+  example_after: Focus is rare these days.
+  severity: 2
+- id: not-just-x
+  category: ai-cadence
+  pattern: \b[Ii]t'?s not just (?:a|an) [^.!?]{3,40}[,—-] it'?s (?:a|an)\b
+  explanation_zh: AI 对仗句式 It's not just X — it's Y
+  example_before: It's not just a tool, it's a lifestyle.
+  example_after: It does one thing well.
+  severity: 2
+- id: navigate-landscape
+  category: ai-cadence
+  pattern: \bnavigat(?:e|ing) the (?:ever-changing|complex|rapidly changing) (?:landscape|world)\b
+  explanation_zh: AI 隐喻套话
+  example_before: navigating the ever-changing landscape of social media
+  example_after: keeping up with social media
+  severity: 2
+- id: unlock-potential
+  category: ai-cadence
+  pattern: \bunlock (?:your|the|its) (?:full )?potential\b
+  explanation_zh: AI 励志套话
+  example_before: This routine will unlock your potential.
+  example_after: This routine changed how I work.
+  severity: 1
+- id: game-changer
+  category: ai-cadence
+  pattern: \b(?:game-changer|game changer|revolutionary)\b
+  explanation_zh: AI 夸张形容
+  example_before: This app is a game-changer.
+  example_after: This app fixed a real annoyance.
+  severity: 1
+- id: in-conclusion-formal
+  category: ai-cadence
+  pattern: \b[Ii]n conclusion\b
+  explanation_zh: 议论文式收束（首先/其次/最后 的英文版）
+  example_before: In conclusion, learning English takes time.
+  example_after: 'Bottom line: it takes time.'
+  severity: 1
+- id: transition-chain
+  category: ai-cadence
+  pattern: \b(?:Moreover|Furthermore|Additionally)\b
+  explanation_zh: 议论文连接词链条（其次/此外/另外）
+  example_before: Moreover, it saves money. Furthermore, it is fast.
+  example_after: It also saves money and runs fast.
+  severity: 1
+- id: testament-to
+  category: ai-cadence
+  pattern: \ba testament to\b
+  explanation_zh: AI 高频隐喻
+  example_before: Its success is a testament to the team.
+  example_after: Its success shows what the team can do.
+  severity: 1
+- id: rich-tapestry
+  category: ai-cadence
+  pattern: \b(?:rich|vibrant) tapestry of\b
+  explanation_zh: AI 高频意象
+  example_before: the rich tapestry of city life
+  example_after: the mess and energy of city life
+  severity: 2
+- id: pivotal-paramount
+  category: ai-cadence
+  pattern: \b(?:pivotal|paramount|crucial role)\b
+  explanation_zh: AI 强调词通胀
+  example_before: consistency plays a pivotal role
+  example_after: consistency matters most
+  severity: 1
+- id: lets-dive-in
+  category: ai-cadence
+  pattern: \bLet'?s dive in\b
+  explanation_zh: AI 过渡套话
+  example_before: Here are my five tips. Let's dive in!
+  example_after: Here are my five tips.
+  severity: 1
+- id: rhetorical-opener
+  category: ai-cadence
+  pattern: \bHave you ever wondered\b
+  explanation_zh: AI 反问开场
+  example_before: Have you ever wondered why some posts take off?
+  example_after: Why do some posts take off?
+  severity: 2
+- id: triple-adjective
+  category: ai-cadence
+  pattern: \b(?:seamless|intuitive|powerful|effortless|delightful)(?:,\s*(?:and\s+)?(?:seamless|intuitive|powerful|effortless|delightful)){2,}\b
+  explanation_zh: AI 三连形容词
+  example_before: a seamless, intuitive, and powerful experience
+  example_after: an app that just works
+  severity: 2
+- id: embark-journey
+  category: ai-cadence
+  pattern: \bembark on (?:your|this|the) (?:journey|adventure)\b
+  explanation_zh: AI 旅程隐喻
+  example_before: embark on your language journey
+  example_after: start learning
+  severity: 2
+- id: elevate-your
+  category: ai-cadence
+  pattern: \belevate your\b
+  explanation_zh: AI 营销动词
+  example_before: elevate your content game
+  example_after: make your content better
+  severity: 1
+- id: in-the-realm-of
+  category: ai-cadence
+  pattern: \bin the realm of\b
+  explanation_zh: AI 领域套话
+  example_before: in the realm of productivity tools
+  example_after: among productivity tools
+  severity: 2
+- id: foster-sense
+  category: ai-cadence
+  pattern: \bfoster (?:a )?sense of\b
+  explanation_zh: AI 抽象动词
+  example_before: foster a sense of community
+  example_after: build community
+  severity: 1
+- id: underscore-importance
+  category: ai-cadence
+  pattern: \bunderscor(?:e|es|ing) the importance of\b
+  explanation_zh: AI 强调套话
+  example_before: This underscores the importance of sleep.
+  example_after: This is why sleep matters.
+  severity: 1
+- id: ever-evolving
+  category: ai-cadence
+  pattern: \b(?:ever-evolving|ever-changing|constantly evolving)\b
+  explanation_zh: AI 变化形容
+  example_before: the ever-evolving creator economy
+  example_after: the creator economy as it shifts
+  severity: 1

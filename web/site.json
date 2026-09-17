@@ -1,0 +1,246 @@
+{
+ "schema": 3,
+ "name": "Muyu",
+ "github": "https://github.com/SuperMarioYL/muyu",
+ "palette": "auto",
+ "lang": {
+  "primary": "zh",
+  "toggle": true
+ },
+ "meta": {
+  "visual_profile": "neon-particle",
+  "demo_source": "docs/demo-results.json",
+  "implementation_version": "0.1.0"
+ },
+ "hero": {
+  "eyebrow": {
+   "zh": "出海创作者 · 英文母语感",
+   "en": "Overseas creators · native tone"
+  },
+  "headline": {
+   "zh": "你的英文帖，\n不再一眼被看出是「中国人写的AI稿」。",
+   "en": "Your English posts stop reading like\nan AI draft written by a Chinese speaker."
+  },
+  "sub": {
+   "zh": "Muyu 用 68 条中式英语 tell 规则给草稿打 0-100 母语感分（离线、零模型调用），按 Instagram / TikTok / Substack 平台文风逐段改写（接入你自己的 DeepSeek / Qwen / GLM / Kimi 端点），再复检给出可验证的前后对比。搭配迁移、语序迁移、客气套话、AI 腔——四类痕迹，一次工作台全治。",
+   "en": "Muyu scores your draft's Chinglish density with 68 built-in tells (offline, zero model calls), rewrites it segment-by-segment for Instagram / TikTok / Substack against your own DeepSeek / Qwen / GLM / Kimi endpoint, then re-scores so the delta is verifiable. Collocation transfers, word-order transfers, politeness formulas, AI cadence - four layers of tells, one workbench."
+  },
+  "href": "#quickstart",
+  "cta": {
+   "zh": "开始打分",
+   "en": "Score a draft"
+  },
+  "ctaGithub": {
+   "zh": "在 GitHub 查看",
+   "en": "View on GitHub"
+  }
+ },
+ "scene": {
+  "kind": "neon-graph",
+  "fallback": "/assets/presentation/hero-dark.svg",
+  "fallbackLight": "/assets/presentation/hero-light.svg",
+  "caption": {
+   "zh": "先打分，再改写，后复检",
+   "en": "Score, rewrite, verify"
+  }
+ },
+ "advantages": [
+  {
+   "title": {
+    "zh": "看得见中文思维留下的痕迹",
+    "en": "It sees what a Chinese-mindset draft leaves behind"
+   },
+   "body": {
+    "zh": "英语单语 humanizer 只认识 AI 腔（delve into / It's not just X）。Muyu 的 tell 库专治中文思维直译那一层：open the light、I very like it、Do you know where is the station、Please kindly——68 条规则按搭配迁移 / 语序迁移 / 客气套话 / AI 腔四类组织，每条带中文解释与改写示例，既是检测器也是避坑手册。",
+    "en": "English-only humanizers recognize AI cadence (delve into, It's not just X). Muyu's tell library targets the Chinese-mindset layer underneath: open the light, I very like it, Do you know where is the station, Please kindly - 68 rules across collocation / word-order / politeness / AI-cadence, each with a Chinese explanation and rewrite example. Detector and study guide in one."
+   }
+  },
+  {
+   "title": {
+    "zh": "打分离线可复现，改进可证伪",
+    "en": "Offline, reproducible scoring; falsifiable improvement"
+   },
+   "body": {
+    "zh": "score 是纯规则评分器：零模型调用、完全离线，同一草稿重复打分分差为 0。rewrite 之后用同一评分器复检，输出分类 delta 报告——改写是不是真的更母语，看数字不看感觉。",
+    "en": "score is a pure-rule scorer: zero model calls, fully offline, byte-stable on repeat runs. After rewriting, the same scorer re-scores and emits a per-category delta report - whether the rewrite actually sounds more native is a number, not a vibe."
+   }
+  },
+  {
+   "title": {
+    "zh": "你的端点你的模型，平台文风内建",
+    "en": "Your endpoint, your model; platform style built in"
+   },
+   "body": {
+    "zh": "改写走你自己配置的 OpenAI 兼容端点，DeepSeek / Qwen / GLM / Kimi 一键预设，无账号无中间商。Instagram / TikTok / Substack 三个风格包把钩子结构、段落节奏、标签规范做成显式约束；--lock 逐字锁定品牌名与链接。数据层 YAML 全开放——数据层就是产品。",
+    "en": "Rewriting runs on your own OpenAI-compatible endpoint with one-command DeepSeek / Qwen / GLM / Kimi presets - no account, no middleman. Instagram / TikTok / Substack style packs turn hook structure, paragraph rhythm, and hashtag norms into explicit constraints; --lock preserves brand names verbatim. The data layer is open YAML - the data layer IS the product."
+   }
+  }
+ ],
+ "story": {
+  "intro": {
+   "title": {
+    "zh": "能读英文，和写得像母语者，是两回事",
+    "en": "Reading English and writing native are different skills"
+   },
+   "body": {
+    "zh": "出海创作者大多能顺读英文，但一落笔，评论区和数据都会提醒：这帖是「中国人写的AI稿」。三层中式痕迹——搭配迁移、语序迁移、客气套话——再叠一层 AI 腔，恰好都在英语单语工具的盲区里。Muyu 把这一层的检测、改写与验证做成一条工作台流水线：score 打分、rewrite 按平台改写、check 复检 delta。",
+    "en": "Most overseas Chinese creators read English fine - then their comments remind them their drafts read like an AI wrote them in translation. Three layers of Chinese-mindset tells (collocation, word-order, politeness) plus generic AI cadence sit exactly in the blind spot of English-only tools. Muyu turns detection, rewriting, and verification into one workbench: score, rewrite per platform, check the delta."
+   }
+  },
+  "sections": [
+   {
+    "title": {
+     "zh": "一条草稿的旅程",
+     "en": "The journey of one draft"
+    },
+    "body": {
+     "zh": "score 读入草稿，逐段标出命中的 tell 与严重度，给出 0-100 母语感分；rewrite 把每段连同它的 tell 命中、平台风格规则与锁定元素发给你的端点，输出 before/after 对照；check 复检改写稿并输出分类 delta。三条命令，一个闭环。",
+     "en": "score reads the draft, flags matched tells per segment with severity, and returns a 0-100 native-tone score; rewrite sends each segment plus its tells, platform rules, and locked elements to your endpoint and renders before/after pairs; check re-scores the rewrite and emits the per-category delta. Three commands, one closed loop."
+    },
+    "image": {
+     "light": "/assets/presentation/process-light.svg",
+     "dark": "/assets/presentation/process-dark.svg",
+     "alt": {
+      "zh": "score → rewrite → check：打分、按平台分段改写、复检 delta。",
+      "en": "score → rewrite → check: score, per-platform segment rewrite, verify the delta."
+     },
+     "mobile": {
+      "light": "/assets/presentation/process-mobile-light.svg",
+      "dark": "/assets/presentation/process-mobile-dark.svg"
+     }
+    }
+   },
+   {
+    "title": {
+     "zh": "数据流与模块",
+     "en": "Data flow and modules"
+    },
+    "body": {
+     "zh": "CLI 之下是三块数据资产：tell 库（68 条规则，YAML 外置可扩展）、平台风格包（钩子/节奏/规范/避雷）、评分器（纯规则可复现）。改写器只依赖一个 OpenAI 兼容端点，四家国产模型预设开箱即用。",
+     "en": "Under the CLI sit three data assets: the tell library (68 rules, open YAML), the platform style packs (hook / rhythm / conventions / avoid-lists), and the scorer (pure rules, reproducible). The rewriter depends on a single OpenAI-compatible endpoint with four CN-model presets out of the box."
+    },
+    "image": {
+     "light": "/assets/presentation/architecture-light.svg",
+     "dark": "/assets/presentation/architecture-dark.svg",
+     "alt": {
+      "zh": "CLI、tell 库、评分器、OpenAI 兼容端点与平台风格包的数据流。",
+      "en": "Data flow across the CLI, tell library, scorer, OpenAI-compatible endpoint, and platform style packs."
+     },
+     "mobile": {
+      "light": "/assets/presentation/architecture-mobile-light.svg",
+      "dark": "/assets/presentation/architecture-mobile-dark.svg"
+     }
+    }
+   }
+  ]
+ },
+ "demo": {
+  "title": {
+   "zh": "真实运行记录",
+   "en": "Recorded run"
+  },
+  "note": {
+   "zh": "v0.1.0 的离线终端实录：score 两次（40 分与 52 分草稿）→ check 复检 delta → presets 端点预设。打分与复检全程离线、零模型调用；命令与输出逐字记录于 docs/demo-results.json，重跑逐字一致。",
+   "en": "Real offline terminal output from v0.1.0: two scores (a 40 and a 52 draft) -> check delta -> presets. Scoring and checking are fully offline with zero model calls; commands and outputs are recorded verbatim in docs/demo-results.json and reproduce byte-identically."
+  },
+  "source": "https://github.com/SuperMarioYL/muyu/blob/main/docs/demo-results.json",
+  "steps": [
+   {
+    "label": {
+     "zh": "score：Instagram 旅帖草稿 — 40 分",
+     "en": "score: Instagram travel draft — 40"
+    },
+    "body": {
+     "zh": "离线零模型调用，秒出：87 词的草稿命中 7 条 tell（搭配迁移/语序迁移/客气套话/AI 腔四类都有），母语感 40 分。每条命中带严重度与原文定位。",
+     "en": "Offline and instant: an 87-word draft hits 7 tells across all four categories, native-tone 40. Every hit carries severity and location."
+    },
+    "image": "/assets/presentation/demo-0-light.svg",
+    "imageDark": "/assets/presentation/demo-0-dark.svg",
+    "command": "muyu score examples/before-after-1.md",
+    "output": "muyu score — examples/before-after-1.md                     \n┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓\n┃ native-to… ┃ words ┃ tells ┃ ai-cadence ┃ collocat… ┃ politeness ┃ word-ord… ┃\n┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩\n│         63 │   181 │     9 │          2 │         2 │          2 │         3 │\n└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  rhetorical-opener  Have you ever wondered  (severity 2)\n  broaden-eyes  broaden my eyes  (severity 3)\n  very-like  I very like  (severity 3)\n  although-but  Although it was raining, but  (severity 2)\n  everyday-adverb  Everyday I  (severity 2)\n  wish-you-good-day  Wish you a good day  (severity 1)\n\nsegment 7\n  broaden-eyes  broaden my eyes  (severity 3)\n  wish-you-good-day  wish you a good day  (severity 1)\n\nrun `muyu rewrite <file> --platform instagram|tiktok|substack` to fix"
+   },
+   {
+    "label": {
+     "zh": "score：Substack 长文草稿 — 52 分",
+     "en": "score: Substack essay draft — 52"
+    },
+    "body": {
+     "zh": "议论文式开场与连接词链条（As we all know / Moreover / Furthermore）、AI 对仗句、三类客气套话——9 条 tell，52 分。",
+     "en": "Essay-style openers and transition chains (As we all know, Moreover, Furthermore), AI parallelism, three politeness formulas - 9 tells, score 52."
+    },
+    "image": "/assets/presentation/demo-1-light.svg",
+    "imageDark": "/assets/presentation/demo-1-dark.svg",
+    "command": "muyu score examples/before-after-2.md",
+    "output": "muyu score — examples/before-after-2.md                \n┏━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┓\n┃ native-tone ┃ words ┃ tells ┃ ai-cadence ┃ politeness ┃ word-order ┃\n┡━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━┩\n│          65 │   249 │    14 │          7 │          6 │          1 │\n└─────────────┴───────┴───────┴────────────┴────────────┴────────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  not-just-x  It's not just a language problem, it's a  (severity 2)\n  transition-chain  Moreover  (severity 1)\n  transition-chain  Furthermore  (severity 1)\n  please-kindly  Please kindly  (severity 3)\n  as-we-all-know  As we all know  (severity 2)\n\nsegment 4\n  in-conclusion-formal  In conclusion  (severity 1)\n  although-but  Although these tips are simple, but  (severity 2)\n  thank-understanding  Thank you for your understanding  (severity 2)\n\nsegment 8\n  transition-chain  Moreover  (severity 1)\n  transition-chain  Furthermore  (severity 1)\n  please-kindly  Please kindly  (severity 3)\n  thank-understanding  Thank you for your understanding  (severity 2)\n  as-we-all-know  As we all know  (severity 2)\n\nrun `muyu rewrite <file> --platform instagram|tiktok|substack` to fix"
+   },
+   {
+    "label": {
+     "zh": "check：改写稿复检 — delta 可验证",
+     "en": "check: re-score the rewrite — verifiable delta"
+    },
+    "body": {
+     "zh": "复检走同一个评分器：与基线 40 相比的提升量直接给出。改写是不是真的更母语，看数字不看感觉。",
+     "en": "The same scorer re-scores the rewrite and reports the delta against your baseline. Improvement is a number, not a vibe."
+    },
+    "image": "/assets/presentation/demo-2-light.svg",
+    "imageDark": "/assets/presentation/demo-2-dark.svg",
+    "command": "muyu check examples/before-after-1.md --baseline 40",
+    "output": "muyu score — examples/before-after-1.md                     \n┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓\n┃ native-to… ┃ words ┃ tells ┃ ai-cadence ┃ collocat… ┃ politeness ┃ word-ord… ┃\n┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩\n│         63 │   181 │     9 │          2 │         2 │          2 │         3 │\n└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  rhetorical-opener  Have you ever wondered  (severity 2)\n  broaden-eyes  broaden my eyes  (severity 3)\n  very-like  I very like  (severity 3)\n  although-but  Although it was raining, but  (severity 2)\n  everyday-adverb  Everyday I  (severity 2)\n  wish-you-good-day  Wish you a good day  (severity 1)\n\nsegment 7\n  broaden-eyes  broaden my eyes  (severity 3)\n  wish-you-good-day  wish you a good day  (severity 1)\n\ndelta vs baseline 40: +23"
+   },
+   {
+    "label": {
+     "zh": "presets：四家国产模型端点预设",
+     "en": "presets: four CN-model endpoints"
+    },
+    "body": {
+     "zh": "DeepSeek / Qwen / GLM / Kimi 一键预设，OpenAI 兼容端点走你自己的 key——无账号、无中间商。rewrite 命令消费它们。",
+     "en": "One-command DeepSeek / Qwen / GLM / Kimi presets over an OpenAI-compatible endpoint with your own key - no account, no middleman. The rewrite command consumes them."
+    },
+    "image": "/assets/presentation/demo-3-light.svg",
+    "imageDark": "/assets/presentation/demo-3-dark.svg",
+    "command": "muyu presets",
+    "output": "muyu presets                                  \n┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓\n┃ preset   ┃ base_url                                         ┃ default model  ┃\n┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━┩\n│ deepseek │ https://api.deepseek.com                         │ deepseek-chat  │\n│ qwen     │ https://dashscope.aliyuncs.com/compatible-mode/… │ qwen-plus      │\n│ glm      │ https://open.bigmodel.cn/api/paas/v4             │ glm-4.6        │\n│ kimi     │ https://api.moonshot.cn/v1                       │ moonshot-v1-8k │\n└──────────┴──────────────────────────────────────────────────┴────────────────┘\nset MUYU_PRESET + MUYU_API_KEY, or write ~/.muyu/config.yaml"
+   }
+  ]
+ },
+ "quickstart": {
+  "title": {
+   "zh": "三条命令走完闭环",
+   "en": "Three commands, one closed loop"
+  },
+  "body": {
+   "zh": "需要 Python 3.12+。score 与 check 全程离线、零模型调用；rewrite 需要一个 OpenAI 兼容端点（DeepSeek / Qwen / GLM / Kimi 一键预设），不配 key 也能完整走通打分-复检。",
+   "en": "Requires Python 3.12+. score and check are fully offline with zero model calls; rewrite needs an OpenAI-compatible endpoint (one-command DeepSeek / Qwen / GLM / Kimi presets). Without a key you can still run the score-check loop end to end."
+  },
+  "steps": [
+   {
+    "title": {
+     "zh": "安装",
+     "en": "Install"
+    },
+    "code": "pip install muyu"
+   },
+   {
+    "title": {
+     "zh": "打分（离线）",
+     "en": "Score (offline)"
+    },
+    "code": "muyu score draft.md"
+   },
+   {
+    "title": {
+     "zh": "按平台改写",
+     "en": "Rewrite per platform"
+    },
+    "code": "export MUYU_PRESET=deepseek MUYU_API_KEY=sk-...\nmuyu rewrite draft.md --platform substack --lock \"Muyu\" --out rewrite.md"
+   },
+   {
+    "title": {
+     "zh": "复检 delta",
+     "en": "Check the delta"
+    },
+    "code": "muyu check rewrite.md --baseline 40"
+   }
+  ]
+ }
+}

@@ -1,0 +1,10 @@
+platform: tiktok
+hook_norm: 前 3 秒 = 首行：≤6 个词 + 好奇缺口；口语化、可朗读；钩子直接对着镜头说话的感觉
+paragraph_rhythm: 极短段落（1-2 行）；像口播逐字稿的节奏；总长 ≤300 字符（caption 短，正文靠视频）
+caption_norm: caption 一句话 + 3-5 个话题标签；口语缩写（gonna/wanna/it's）完全可用；不用书面语
+avoid:
+- 书面语（furthermore/nevertheless/whom）
+- 长难句与从句嵌套
+- 公函与道歉套话
+- AI 过渡语（Let's dive in / In conclusion）
+length: ≤300 chars caption

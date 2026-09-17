@@ -1,0 +1,38 @@
+{
+  "mode": "auto",
+  "id": "e6566a-e79c6a-f6acd1-042b526d80e9",
+  "identity": "https://github.com/supermarioyl/muyu",
+  "primary": "#e6566a",
+  "secondary": "#e79c6a",
+  "highlight": "#f6acd1",
+  "dark": {
+    "bg": "#0a070d",
+    "panel": "#131018",
+    "code": "#140d14",
+    "ink": "#fdeef6",
+    "muted": "#b29cac",
+    "line": "#3a1821",
+    "primary": "#e6566a",
+    "secondary": "#e79c6a",
+    "highlight": "#f6acd1",
+    "accent": "#e6566a",
+    "buttonStart": "#c94b5d",
+    "buttonEnd": "#9e6b49",
+    "buttonText": "#ffffff"
+  },
+  "light": {
+    "bg": "#fef9fa",
+    "panel": "#fef7f8",
+    "code": "#fdf3f5",
+    "ink": "#27161e",
+    "muted": "#725e6f",
+    "line": "#f7cbd2",
+    "primary": "#bf4858",
+    "secondary": "#966645",
+    "highlight": "#90647a",
+    "accent": "#bf4858",
+    "buttonStart": "#c94b5d",
+    "buttonEnd": "#9e6b49",
+    "buttonText": "#ffffff"
+  }
+}

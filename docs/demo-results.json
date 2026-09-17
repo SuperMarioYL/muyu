@@ -1,0 +1,51 @@
+{
+  "tool": "muyu",
+  "version": "0.1.0",
+  "recorded_at": "2026-09-17T05:44:17+00:00",
+  "environment": "offline quickstart (score/check need no API key; rewrite does)",
+  "limitations": "the rewrite pass needs a configured MUYU_API_KEY and is not part of this recorded run; its before/after outputs ship as examples/*.md",
+  "steps": [
+    {
+      "command": "muyu score examples/before-after-1.md",
+      "output": "muyu score — examples/before-after-1.md                     \n┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓\n┃ native-to… ┃ words ┃ tells ┃ ai-cadence ┃ collocat… ┃ politeness ┃ word-ord… ┃\n┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩\n│         63 │   181 │     9 │          2 │         2 │          2 │         3 │\n└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  rhetorical-opener  Have you ever wondered  (severity 2)\n  broaden-eyes  broaden my eyes  (severity 3)\n  very-like  I very like  (severity 3)\n  although-but  Although it was raining, but  (severity 2)\n  everyday-adverb  Everyday I  (severity 2)\n  wish-you-good-day  Wish you a good day  (severity 1)\n\nsegment 7\n  broaden-eyes  broaden my eyes  (severity 3)\n  wish-you-good-day  wish you a good day  (severity 1)\n\nrun `muyu rewrite <file> --platform instagram|tiktok|substack` to fix"
+    },
+    {
+      "command": "muyu score examples/before-after-2.md",
+      "output": "muyu score — examples/before-after-2.md                \n┏━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┓\n┃ native-tone ┃ words ┃ tells ┃ ai-cadence ┃ politeness ┃ word-order ┃\n┡━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━┩\n│          65 │   249 │    14 │          7 │          6 │          1 │\n└─────────────┴───────┴───────┴────────────┴────────────┴────────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  not-just-x  It's not just a language problem, it's a  (severity 2)\n  transition-chain  Moreover  (severity 1)\n  transition-chain  Furthermore  (severity 1)\n  please-kindly  Please kindly  (severity 3)\n  as-we-all-know  As we all know  (severity 2)\n\nsegment 4\n  in-conclusion-formal  In conclusion  (severity 1)\n  although-but  Although these tips are simple, but  (severity 2)\n  thank-understanding  Thank you for your understanding  (severity 2)\n\nsegment 8\n  transition-chain  Moreover  (severity 1)\n  transition-chain  Furthermore  (severity 1)\n  please-kindly  Please kindly  (severity 3)\n  thank-understanding  Thank you for your understanding  (severity 2)\n  as-we-all-know  As we all know  (severity 2)\n\nrun `muyu rewrite <file> --platform instagram|tiktok|substack` to fix"
+    },
+    {
+      "command": "muyu check examples/before-after-1.md --baseline 40",
+      "output": "muyu score — examples/before-after-1.md                     \n┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓\n┃ native-to… ┃ words ┃ tells ┃ ai-cadence ┃ collocat… ┃ politeness ┃ word-ord… ┃\n┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩\n│         63 │   181 │     9 │          2 │         2 │          2 │         3 │\n└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  rhetorical-opener  Have you ever wondered  (severity 2)\n  broaden-eyes  broaden my eyes  (severity 3)\n  very-like  I very like  (severity 3)\n  although-but  Although it was raining, but  (severity 2)\n  everyday-adverb  Everyday I  (severity 2)\n  wish-you-good-day  Wish you a good day  (severity 1)\n\nsegment 7\n  broaden-eyes  broaden my eyes  (severity 3)\n  wish-you-good-day  wish you a good day  (severity 1)\n\ndelta vs baseline 40: +23"
+    },
+    {
+      "command": "muyu presets",
+      "output": "muyu presets                                  \n┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓\n┃ preset   ┃ base_url                                         ┃ default model  ┃\n┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━┩\n│ deepseek │ https://api.deepseek.com                         │ deepseek-chat  │\n│ qwen     │ https://dashscope.aliyuncs.com/compatible-mode/… │ qwen-plus      │\n│ glm      │ https://open.bigmodel.cn/api/paas/v4             │ glm-4.6        │\n│ kimi     │ https://api.moonshot.cn/v1                       │ moonshot-v1-8k │\n└──────────┴──────────────────────────────────────────────────┴────────────────┘\nset MUYU_PRESET + MUYU_API_KEY, or write ~/.muyu/config.yaml"
+    }
+  ],
+  "example_pairs": [
+    {
+      "example": "before-after-1.md",
+      "before_score": 40,
+      "before_tells": 7,
+      "after_score": 100,
+      "after_tells": 0,
+      "delta": 60
+    },
+    {
+      "example": "before-after-2.md",
+      "before_score": 52,
+      "before_tells": 9,
+      "after_score": 100,
+      "after_tells": 0,
+      "delta": 48
+    },
+    {
+      "example": "before-after-3.md",
+      "before_score": 54,
+      "before_tells": 5,
+      "after_score": 100,
+      "after_tells": 0,
+      "delta": 46
+    }
+  ]
+}

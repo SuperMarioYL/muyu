@@ -1,0 +1,338 @@
+version: 1
+tells:
+- id: open-the-light
+  category: collocation-transfer
+  pattern: \bopen (?:the|a|my) light
+  explanation_zh: 「开灯」直译为 open the light；英语的灯用 turn on/off
+  example_before: Could you open the light?
+  example_after: Could you turn the light on?
+  severity: 3
+- id: close-the-light
+  category: collocation-transfer
+  pattern: \bclose (?:the|a|my) light
+  explanation_zh: 「关灯」直译 close；应为 turn off
+  example_before: Please close the light when you leave.
+  example_after: Please turn off the light when you leave.
+  severity: 3
+- id: play-phone
+  category: collocation-transfer
+  pattern: \bplay(?:ing)? (?:with )?(?:my |the )?phone\b
+  explanation_zh: 「玩手机」直译 play phone；英语说 be on / scroll on my phone
+  example_before: I just play phone at home all weekend.
+  example_after: I just scroll on my phone at home all weekend.
+  severity: 2
+- id: learn-knowledge
+  category: collocation-transfer
+  pattern: \blearn(?:ing)? (?:new )?knowledge\b
+  explanation_zh: 「学习知识」直译 learn knowledge；英语不这样搭配
+  example_before: I go online to learn knowledge every day.
+  example_after: I go online to pick things up every day.
+  severity: 2
+- id: broaden-eyes
+  category: collocation-transfer
+  pattern: \b(?:broaden|open|widen) (?:my |your |the )?(?:eyes|eye view|vision)\b
+  explanation_zh: 「开阔眼界」的常见误译 broaden my eyes；固定说法是 broaden my horizons
+  example_before: Traveling helps you broaden your eyes.
+  example_after: Traveling helps you broaden your horizons.
+  severity: 3
+- id: eat-medicine
+  category: collocation-transfer
+  pattern: \beat(?:ing)? (?:the |my )?(?:medicine|pills?)\b
+  explanation_zh: 「吃药」直译 eat medicine；英语用 take
+  example_before: Remember to eat your medicine on time.
+  example_after: Remember to take your medicine on time.
+  severity: 3
+- id: make-photos
+  category: collocation-transfer
+  pattern: \bmake (?:photos?|pictures?)\b
+  explanation_zh: 「拍照」直译 make photos；英语用 take photos
+  example_before: Let me make a photo of this view.
+  example_after: Let me take a photo of this view.
+  severity: 2
+- id: discuss-about
+  category: collocation-transfer
+  pattern: \bdiscuss (?:about|on)\b
+  explanation_zh: discuss 本身及物，「讨论关于」是中式冗余
+  example_before: We discussed about the plan yesterday.
+  example_after: We discussed the plan yesterday.
+  severity: 2
+- id: emphasize-on
+  category: collocation-transfer
+  pattern: \bemphasiz(?:e|ed|ing) (?:on|about)\b
+  explanation_zh: emphasize 及物；「强调某事」不需要介词
+  example_before: The teacher emphasized on this point.
+  example_after: The teacher emphasized this point.
+  severity: 2
+- id: lack-of-verb
+  category: collocation-transfer
+  pattern: \b(?:I|we|they|he|she|it) lack(?:s)? of\b
+  explanation_zh: 「缺乏」的 lack 是动词，不加 of
+  example_before: I lack of time these days.
+  example_after: I'm short on time these days.
+  severity: 2
+- id: married-with
+  category: collocation-transfer
+  pattern: \bmarried with\b
+  explanation_zh: 「和某人结婚」应为 married to
+  example_before: She is married with a doctor.
+  example_after: She is married to a doctor.
+  severity: 2
+- id: contact-with
+  category: collocation-transfer
+  pattern: \bcontact with\b
+  explanation_zh: contact 及物；「联系我」不是 contact with me
+  example_before: You can contact with me by email.
+  example_after: You can reach me by email.
+  severity: 2
+- id: price-cheap
+  category: collocation-transfer
+  pattern: \b(?:price|cost)s? (?:is|are|was|were) (?:very )?(?:cheap|expensive)\b
+  explanation_zh: 「价格便宜/贵」是汉语搭配；英语价格用 low/high，东西才用 cheap/expensive
+  example_before: The price is very cheap here.
+  example_after: It's really cheap here.
+  severity: 2
+- id: people-many
+  category: collocation-transfer
+  pattern: \b(?:people|persons) (?:here|there) (?:are |is )?(?:very )?many\b
+  explanation_zh: 「人很多」直译 people are many；英语说 it's crowded
+  example_before: People here are very many in the morning.
+  example_after: It gets packed here in the morning.
+  severity: 3
+- id: join-activity
+  category: collocation-transfer
+  pattern: \bjoin (?:an? )?(?:activity|activities|party)\b
+  explanation_zh: 「参加活动」直译 join an activity；英语用 go to / take part in
+  example_before: I will join an activity this weekend.
+  example_after: I'm going to an event this weekend.
+  severity: 1
+- id: join-exam
+  category: collocation-transfer
+  pattern: \bjoin (?:the |an? )?(?:exam|test|interview)\b
+  explanation_zh: 「参加考试/面试」用 take，不是 join
+  example_before: I will join the IELTS exam next month.
+  example_after: I'm taking the IELTS next month.
+  severity: 2
+- id: play-happily
+  category: collocation-transfer
+  pattern: \bplay(?:ed)? happily\b
+  explanation_zh: 「玩得开心」直译 play happily；英语说 had a great time
+  example_before: We played happily in the park.
+  example_after: We had a great time in the park.
+  severity: 2
+- id: how-to-say-sentence
+  category: collocation-transfer
+  pattern: \bHow to say\b
+  explanation_zh: 「怎么说」直译成陈述句 How to say...；疑问句应为 How do you say...
+  example_before: How to say this word in English?
+  example_after: How do you say this word in English?
+  severity: 3
+- id: very-delicious
+  category: collocation-transfer
+  pattern: \b(?:very|so|really) delicious\b
+  explanation_zh: 「很好吃」的程度副词习惯；delicious 本身已是强义词，英语不叠加 very
+  example_before: The hotpot was very delicious.
+  example_after: The hotpot was delicious.
+  severity: 1
+- id: spend-time-to-do
+  category: collocation-transfer
+  pattern: \bspend (?:much |a lot of |some |two |three |\d+ )?(?:hours?|days?|minutes?|time) to \w+
+  explanation_zh: 「花时间做某事」的 spend time doing，不是 to do
+  example_before: I spent two hours to write this post.
+  example_after: I spent two hours writing this post.
+  severity: 2
+- id: insist-opinion
+  category: collocation-transfer
+  pattern: \binsist (?:my|his|her|their|our) (?:opinion|view|idea)
+  explanation_zh: 「坚持意见」insist 后接 on + 名词或从句，不直接接物主代词
+  example_before: He insisted his opinion in the meeting.
+  example_after: He stood by his view in the meeting.
+  severity: 2
+- id: thing-convenient
+  category: collocation-transfer
+  pattern: \bthis thing is (?:very )?convenient\b
+  explanation_zh: 「这个东西很方便」的 thing 泛指直译；英语通常省掉或用 it
+  example_before: This thing is very convenient for travelers.
+  example_after: This is a real time-saver for travelers.
+  severity: 1
+- id: answer-question-wrong
+  category: collocation-transfer
+  pattern: \banswer(?:ed)? (?:the |my |your )?(?:question|it)? ?(?:wrong|correct)\b
+  explanation_zh: 「答对/答错」的 answer + 形容词直译；英语说 get it right/wrong
+  example_before: I answered the question wrong.
+  example_after: I got the question wrong.
+  severity: 1
+- id: suit-for
+  category: collocation-transfer
+  pattern: \bsuit(?:able)? for (?:me|you|us|them|him|her|beginners|newcomers)\b
+  explanation_zh: 「适合我」的 suit sb 不加 for（suitable for 才带 for）
+  example_before: This camera suits for beginners.
+  example_after: This camera suits beginners.
+  severity: 2
+- id: how-much-price
+  category: collocation-transfer
+  pattern: \b[Hh]ow much is the price\b
+  explanation_zh: 「价格是多少」的 price 与 how much 语义重复；只问一个
+  example_before: How much is the price of this course?
+  example_after: How much is this course?
+  severity: 1
+- id: very-like
+  category: word-order
+  pattern: \b(?:I|we|they|he|she) very (?:like|love|enjoy|miss|want)\b
+  explanation_zh: 「我非常喜欢」的程度副词前移；英语用 really
+  example_before: I very like this café.
+  example_after: I really like this café.
+  severity: 3
+- id: think-not-good
+  category: word-order
+  pattern: \b(?:I|we) think (?:it|this|that|he|she) (?:is|was) not\b
+  explanation_zh: 「我认为它不好」的否定位置；英语把否定提前：I don't think it's good
+  example_before: I think this plan is not good.
+  example_after: I don't think this plan is good.
+  severity: 3
+- id: embedded-question-inversion
+  category: word-order
+  pattern: \b(?:know|wonder|ask)(?:ing)? (?:where|what|when|why|how|who) (?:is|are|was|were|do|does|did|can|will)\b
+  explanation_zh: 宾语从句疑问词后沿用疑问句倒装（你知道车站在哪吗）；从句要用陈述语序
+  example_before: Do you know where is the nearest station?
+  example_after: Do you know where the nearest station is?
+  severity: 3
+- id: because-so
+  category: word-order
+  pattern: \bBecause\b[^.!?]{5,80},?\s*\bso\b
+  explanation_zh: 「因为…所以…」连词成对残留；英语 because 与 so 只能留一个
+  example_before: Because it rained, so we stayed home.
+  example_after: Because it rained, we stayed home.
+  severity: 2
+- id: although-but
+  category: word-order
+  pattern: \b(?:Although|Though)\b[^.!?]{5,80},?\s*\bbut\b
+  explanation_zh: 「虽然…但是…」连词成对残留；英语 although 与 but 互斥
+  example_before: Although it was late, but we kept working.
+  example_after: Although it was late, we kept working.
+  severity: 2
+- id: everyday-adverb
+  category: word-order
+  pattern: \b[Ee]veryday (?:I|we|he|she|they)\b
+  explanation_zh: everyday 是形容词「日常的」；「每天」是 every day（副词短语）
+  example_before: Everyday I take notes in English.
+  example_after: Every day I take notes in English.
+  severity: 2
+- id: he-said-me
+  category: word-order
+  pattern: \b(?:said|says) (?:me|him|her|us|them)\b
+  explanation_zh: 「他说我…」的 said + 人直译；间接宾语要用 tell（He told me）
+  example_before: He said me that the shop closed.
+  example_after: He told me the shop had closed.
+  severity: 2
+- id: adverb-before-verb-manner
+  category: word-order
+  pattern: \b(?:quickly|slowly|carefully|quietly|loudly) (?:go|goes|went|come|comes|came|run|runs|ran|walk|walks|walked)\b
+  explanation_zh: 汉语方式副词习惯放动词前；英语的方式副词在动词后
+  example_before: She quickly runs to the door.
+  example_after: She runs to the door quickly.
+  severity: 1
+- id: time-when-last
+  category: word-order
+  pattern: '\b(?:visited|finished|arrived|started|joined) (?:in|on) (?:last|next) '
+  explanation_zh: 「上个星期」的 last 前不加介词（last week 不是 in last week）
+  example_before: We visited Kyoto in last April.
+  example_after: We visited Kyoto last April.
+  severity: 1
+- id: overloaded-thing-modifier
+  category: word-order
+  pattern: \bthe (?:very )?(?:important|interesting|exciting|meaningful) (?:thing|point|news)\b
+  explanation_zh: 汉语长定语前移习惯让名词失去信息量；英语倾向拆句
+  example_before: This is the very important thing I want to say.
+  example_after: Here's the part that matters most.
+  severity: 1
+- id: please-kindly
+  category: politeness
+  pattern: \b[Pp]lease kindly\b
+  explanation_zh: 「敬请/请」的客气叠加；英语 please 与 kindly 叠用显得生硬
+  example_before: Please kindly check my draft.
+  example_after: Could you take a look at my draft?
+  severity: 3
+- id: dear-sir-madam
+  category: politeness
+  pattern: \bDear (?:Sir|Madam|Sir or Madam|Sir/Madam)\b
+  explanation_zh: 公函式抬头渗入创作文本；社媒语境直接切入
+  example_before: Dear Sir or Madam, I want to share my story.
+  example_after: Here's a story I keep coming back to.
+  severity: 3
+- id: sorry-to-disturb
+  category: politeness
+  pattern: \b(?:Sorry|I am sorry) to (?:disturb|bother|trouble) you\b
+  explanation_zh: 过度道歉开场；创作文本不需要为存在而道歉
+  example_before: Sorry to disturb you, but I made a tool.
+  example_after: I made a tool you might like.
+  severity: 2
+- id: thank-understanding
+  category: politeness
+  pattern: \b[Tt]hank you for your understanding\b
+  explanation_zh: 客服式套话；创作语境换成真实告别
+  example_before: That's all. Thank you for your understanding.
+  example_after: That's all — thanks for reading.
+  severity: 2
+- id: my-great-honor
+  category: politeness
+  pattern: \b[Ii]t(?:'s| is) my (?:great )?honor to\b
+  explanation_zh: 「不胜荣幸」的仪式化开场；社媒文本显旧
+  example_before: It is my great honor to share this with you.
+  example_after: I'm glad I get to share this with you.
+  severity: 2
+- id: wish-you-good-day
+  category: politeness
+  pattern: \b[Ww]ish you (?:a )?(?:good|nice|happy) (?:day|morning|evening)\b
+  explanation_zh: 「祝你有美好的一天」的信件式结尾；英语母语者更自然的是 have a good one
+  example_before: Wish you a good day!
+  example_after: Have a good one!
+  severity: 1
+- id: may-i-ask
+  category: politeness
+  pattern: \bMay I ask\b
+  explanation_zh: 「我可以问一下吗」的许可式开场；直接问更自然
+  example_before: May I ask what is your favorite book?
+  example_after: What's a book you keep rereading?
+  severity: 2
+- id: want-to-know-if
+  category: politeness
+  pattern: \b(?:I|We) (?:would like to|want to) know if (?:you|we|they) (?:could|can|will)\b
+  explanation_zh: 「想知道您是否能」的委婉层级过长；直接请求
+  example_before: I want to know if you could join us.
+  example_after: Come join us if you can.
+  severity: 2
+- id: early-reply-appreciated
+  category: politeness
+  pattern: \b(?:Your|An) early reply (?:will|would) be (?:highly )?appreciated\b
+  explanation_zh: 「盼早日回复」的商务信件化石化；社媒不需要
+  example_before: Your early reply will be appreciated.
+  example_after: Would love to hear back.
+  severity: 3
+- id: we-sincerely-hope
+  category: politeness
+  pattern: \b[Ww]e sincerely hope that\b
+  explanation_zh: 「我们衷心希望」的公文腔
+  example_before: We sincerely hope that you enjoy the article.
+  example_after: We hope you enjoy it.
+  severity: 2
+- id: as-we-all-know
+  category: politeness
+  pattern: \b[Aa]s we all know\b
+  explanation_zh: 「众所周知」的空转开场；母语写作直接给事实
+  example_before: As we all know, English is important.
+  example_after: English opens doors — you already know this.
+  severity: 2
+- id: respectfully-yours-casual
+  category: politeness
+  pattern: \b(?:Respectfully yours|Yours faithfully|Cordially)\b
+  explanation_zh: 正式信件落款出现在轻文本中；社媒用署名即可
+  example_before: Respectfully yours, Li
+  example_after: — Li
+  severity: 2
+- id: please-find-attached
+  category: politeness
+  pattern: \b[Pp]lease find (?:attached|below)\b
+  explanation_zh: 「详见附件」的邮件化石化
+  example_before: Please find below my three tips.
+  example_after: Here are three tips.
+  severity: 2

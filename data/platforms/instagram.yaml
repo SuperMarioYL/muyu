@@ -1,0 +1,11 @@
+platform: instagram
+hook_norm: 首行即钩子：≤8 个词的短句，制造好奇缺口或直接给反差；不要用问候开场
+paragraph_rhythm: 1-3 行一个段落，段间空行；手机屏幕上每段就是一个视觉块；总长 150-1500 字符
+caption_norm: emoji 克制（≤3 个，仅用于分段或强调）；3-5 个话题标签放最末；禁止链接前置（互动引导用『评论/私信』话术）
+avoid:
+- Have you ever wondered 开场
+- 三连形容词堆叠
+- 长复合句（一句话超过 2 行就拆）
+- 学术/公函语气（Dear/Moreover/In conclusion）
+- brand-name 之外的标签堆砌（>5 个 tag）
+length: 150-1500 chars

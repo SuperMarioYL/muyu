@@ -1,0 +1,10 @@
+platform: substack
+hook_norm: 首段挣得这次点击：具体场景或反常识断言 + 利益承诺；不用悬念烂尾
+paragraph_rhythm: 每段 2-4 句、一个观点；每 300-500 词一个小标题；可用破折号插入语制造呼吸感；总长 800-2000 词
+caption_norm: 无话题标签；emoji 几乎不用；旁注可用斜体或括号；结尾给一个具体的下一步（回复/链接/下期预告）
+avoid:
+- 话题标签墙（#）
+- 全大写标题党
+- engagement bait（comment YES if...）
+- AI 排比与套话（unlock potential / game-changer）
+length: 800-2000 words
