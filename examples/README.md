@@ -1,10 +1,22 @@
-# Muyu examples — before/after sample gallery
+# Muyu examples — drafts, native rewrites, and the annotated gallery
 
-Three sample pairs used in the README demo section. Run `muyu score` on any
-"Before" block to reproduce the reported tell report and native-tone score;
-run `muyu check` on the "After" block to confirm the delta.
+Three sample pairs. Each one ships as two plain-text inputs plus an annotated
+gallery page:
 
-## Blind-test protocol (v0.1 ships the protocol; results land in v0.1.x)
+| raw draft | native rewrite | annotated gallery |
+|---|---|---|
+| [`draft-1.md`](./draft-1.md) | [`native-1.md`](./native-1.md) | [`before-after-1.md`](./before-after-1.md) |
+| [`draft-2.md`](./draft-2.md) | [`native-2.md`](./native-2.md) | [`before-after-2.md`](./before-after-2.md) |
+| [`draft-3.md`](./draft-3.md) | [`native-3.md`](./native-3.md) | [`before-after-3.md`](./before-after-3.md) |
+
+`draft-*.md` / `native-*.md` are the inputs the recorded demo runs against:
+`muyu score examples/draft-1.md` reproduces the reported tell report and
+native-tone score (40), and `muyu check examples/native-1.md --baseline 40`
+confirms the delta (+60). The gallery pages carry the same two texts plus the
+per-tell Chinese explanations — score the gallery file itself and you are
+measuring the corrected text as well, which is why the demo does not.
+
+## Blind-test protocol (protocol shipped; results still pending)
 
 For each pair, show a native-English reader both versions (order randomized,
 no branding) and ask "which reads more like a native writer?" A pair counts as

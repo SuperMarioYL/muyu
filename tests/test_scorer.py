@@ -3,6 +3,8 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from muyu.scorer import score_text, split_segments
@@ -81,3 +83,15 @@ def test_report_to_dict_roundtrip():
     d = report.to_dict()
     assert d["score"] == report.score and d["hits"] == len(report.hits)
     assert all("hits" in s and "text" in s for s in d["segments"])
+
+
+@pytest.mark.parametrize("text", ["", "   \n\n\t ", "今天我想分享一下我的京都之旅，非常漂亮。\n"])
+def test_input_without_english_words_is_refused(text):
+    """The score is per 100 English words, so wordless input has no score at all.
+
+    v0.1.0 answered 100 here (`_words(text) or 1` turned "no words" into "1 word"),
+    which read as a perfect native-tone draft for an empty file or a Chinese one.
+    """
+    with pytest.raises(SystemExit) as exc:
+        score_text(text, TELLS)
+    assert "no English words" in str(exc.value)

@@ -98,6 +98,9 @@ def rewrite(
     preset: str = typer.Option(None, "--preset", help="deepseek|qwen|glm|kimi|custom"),
     lock: list[str] = typer.Option([], "--lock", help="element to preserve verbatim (repeatable)"),
     out: typer.FileTextWrite = typer.Option(None, "--out", "-o", help="write markdown report here"),
+    out_rewrite: typer.FileTextWrite = typer.Option(
+        None, "--out-rewrite", help="write the rewritten draft (plain text) here"
+    ),
 ) -> None:
     """Rewrite segment-by-segment against a platform style pack."""
     from .config import LlmConfig
@@ -115,10 +118,15 @@ def rewrite(
     with console.status(f"rewriting via {cfg.preset}/{cfg.model} …"):
         result = rewrite_text(text, platform, cfg, locks=list(lock), report=report)
     after = score_text(result.rewritten_text)
+    if out_rewrite:
+        # The draft alone — the report below carries the original text in its
+        # "Before" blocks, so `muyu check` needs this file, not the report.
+        out_rewrite.write(result.rewritten_text + "\n")
+        console.print(f"[green]wrote[/green] {out_rewrite.name} (rewritten draft)")
     doc = render_pairs(result) + "\n" + render_delta(report, after, label=f"rewrite ({platform})")
     if out:
         out.write(doc)
-        console.print(f"[green]wrote[/green] {out.name}")
+        console.print(f"[green]wrote[/green] {out.name} (before/after report)")
     else:
         console.print(doc)
     console.print(

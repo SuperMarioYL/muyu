@@ -47,9 +47,9 @@ MENLO = "/System/Library/Fonts/Menlo.ttc"
 CJK = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 
 COMMANDS = [
-    "muyu score examples/before-after-1.md",
-    "muyu score examples/before-after-2.md",
-    "muyu check examples/before-after-1.md --baseline 40",
+    "muyu score examples/draft-1.md",
+    "muyu score examples/draft-2.md",
+    "muyu check examples/native-1.md --baseline 40",
     "muyu presets",
 ]
 

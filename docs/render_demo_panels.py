@@ -64,10 +64,10 @@ def main() -> None:
     bin_ = repo / ".venv" / "bin" / "muyu"
     muyu = [str(bin_)] if bin_.exists() else [sys.executable, "-m", "muyu.cli"]
     steps = [
-        (["muyu", "score", "examples/before-after-1.md"], "muyu score examples/before-after-1.md"),
-        (["muyu", "score", "examples/before-after-2.md"], "muyu score examples/before-after-2.md"),
-        (["muyu", "check", "examples/before-after-1.md", "--baseline", "40"],
-         "muyu check examples/before-after-1.md --baseline 40"),
+        (["muyu", "score", "examples/draft-1.md"], "muyu score examples/draft-1.md"),
+        (["muyu", "score", "examples/draft-2.md"], "muyu score examples/draft-2.md"),
+        (["muyu", "check", "examples/native-1.md", "--baseline", "40"],
+         "muyu check examples/native-1.md --baseline 40"),
         (["muyu", "presets"], "muyu presets"),
     ]
     out_dir = repo / "web" / "assets" / "presentation"

@@ -33,11 +33,15 @@ muyu score draft.md
 # 2. Rewrite — needs an OpenAI-compatible endpoint
 export MUYU_PRESET=deepseek
 export MUYU_API_KEY=sk-...
-muyu rewrite draft.md --platform substack --lock "Muyu" --out rewrite.md
+muyu rewrite draft.md --platform substack --lock "Muyu" \
+  --out report.md --out-rewrite draft.native.md
 
-# 3. Check — verify the delta
-muyu check rewrite.md --baseline 40
+# 3. Check — verify the delta on the rewrite itself
+muyu check draft.native.md --baseline 40
 ```
+
+`--out` writes the before/after report (it embeds the original text); check the file
+`--out-rewrite` writes, or the delta is measured against the report's leftover draft.
 
 The score/check loop works fully offline — the demo below was recorded that way.
 
@@ -47,7 +51,7 @@ The score/check loop works fully offline — the demo below was recorded that wa
   <img src="docs/assets/demo-muyu-score.gif" width="960" alt="Real terminal run of muyu score / check: tell report, 0-100 native-tone score, per-category counts, and the preset list.">
 </p>
 
-Three real before/after sample pairs (with per-tell Chinese explanations) live in [`examples/`](./examples/): [Instagram travel post](./examples/before-after-1.md) · [Substack essay](./examples/before-after-2.md) · [TikTok caption](./examples/before-after-3.md). A native-reader blind-test protocol ships with them ([`examples/README.md`](./examples/README.md)).
+Three real before/after sample pairs (with per-tell Chinese explanations) live in [`examples/`](./examples/): [Instagram travel post](./examples/before-after-1.md) · [Substack essay](./examples/before-after-2.md) · [TikTok caption](./examples/before-after-3.md). The raw drafts and the native rewrites are [`examples/draft-*.md`](./examples/draft-1.md) and [`examples/native-*.md`](./examples/native-1.md) — the recorded demo above runs against those two files directly. A native-reader blind-test protocol ships with them ([`examples/README.md`](./examples/README.md)).
 
 ## How it works
 
@@ -74,7 +78,7 @@ The data layer is plain YAML (`data/tells/`, `data/platforms/`) — add rules an
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/presentation/integrations-dark.svg">
-    <img src="assets/presentation/integrations-light.svg" width="960" alt="Endpoint presets and platform style packs shipped in v0.1.0.">
+    <img src="assets/presentation/integrations-light.svg" width="960" alt="Endpoint presets and platform style packs shipped in v0.2.0.">
   </picture>
 </p>
 
@@ -88,6 +92,8 @@ The data layer is plain YAML (`data/tells/`, `data/platforms/`) — add rules an
 | DeepSeek / Qwen / GLM / Kimi endpoint presets | ✅ v0.1.0 |
 | `--lock` verbatim elements (brand names / links) | ✅ v0.1.0 |
 | before/after + per-category delta report | ✅ v0.1.0 |
+| `--out-rewrite` emits the rewrite, so check measures it | ✅ v0.2.0 |
+| Empty / Chinese-only input is refused (no false 100) | ✅ v0.2.0 |
 | Auto-posting to any platform | ❌ never (boundary) |
 | Full Chinese ghost-writing / translation | ❌ editing ≠ ghost-writing |
 | Grammar correction | ❌ that's Grammarly's lane |
@@ -110,16 +116,17 @@ The core (scorer + tell library + base platform packs) is **open-source, forever
 
 ## Roadmap
 
-- **v0.1.x**: publish the native-reader blind-test results for the three sample pairs; full-loop (incl. rewrite) demo gif
-- **v0.2.0**: brand voice packs (consistent voice across a series); more platforms (YouTube about / LinkedIn)
-- **v0.3.0**: community tell-library contributions (rules PRs with sources + examples)
+- **v0.2.0 (shipped)**: fixes to the shipped loop — `--out-rewrite` so check measures the rewrite; empty/Chinese-only input is refused instead of scoring 100; the demo measures the draft itself (40 → 100); the demo CI drift gate works again
+- **v0.3.0**: brand voice packs (consistent voice across a series); more platforms (YouTube about / LinkedIn) — when real demand shows up
+- **v0.4.0**: community tell-library contributions (rules PRs with sources + examples)
+- Still owed: native-reader blind-test results for the three sample pairs; full-loop (incl. rewrite) demo gif
 - Never: auto-posting, account management, gray-area bulk rewriting
 
 ## Development
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -e . pytest
-.venv/bin/python -m pytest -q          # 12 tests
+.venv/bin/python -m pytest -q          # 22 tests
 python3 docs/record_demo_results.py    # regenerate docs/demo-results.json
 python3 docs/render_presentation.py --repo .   # regenerate README SVGs
 ```

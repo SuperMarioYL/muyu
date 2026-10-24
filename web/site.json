@@ -10,7 +10,7 @@
  "meta": {
   "visual_profile": "neon-particle",
   "demo_source": "docs/demo-results.json",
-  "implementation_version": "0.1.0"
+  "implementation_version": "0.2.0"
  },
  "hero": {
   "eyebrow": {
@@ -140,52 +140,52 @@
    "en": "Recorded run"
   },
   "note": {
-   "zh": "v0.1.0 的离线终端实录：score 两次（40 分与 52 分草稿）→ check 复检 delta → presets 端点预设。打分与复检全程离线、零模型调用；命令与输出逐字记录于 docs/demo-results.json，重跑逐字一致。",
-   "en": "Real offline terminal output from v0.1.0: two scores (a 40 and a 52 draft) -> check delta -> presets. Scoring and checking are fully offline with zero model calls; commands and outputs are recorded verbatim in docs/demo-results.json and reproduce byte-identically."
+   "zh": "v0.2.0 的离线终端实录：score 两份原始草稿（40 分与 52 分）→ check 复检改写稿 native-1.md 的 delta（+60）→ presets 端点预设。演示直接对 examples/draft-*.md 与 examples/native-*.md 跑，不再把带原文的 before/after 对照页当输入。打分与复检全程离线、零模型调用；命令与输出逐字记录于 docs/demo-results.json，重跑逐字一致。",
+   "en": "Real offline terminal output from v0.2.0: two raw drafts scored (40 and 52) -> check the delta on the rewritten native-1.md (+60) -> presets. The demo runs against examples/draft-*.md and examples/native-*.md, not the annotated before/after gallery page. Scoring and checking are fully offline with zero model calls; commands and outputs are recorded verbatim in docs/demo-results.json and reproduce byte-identically."
   },
   "source": "https://github.com/SuperMarioYL/muyu/blob/main/docs/demo-results.json",
   "steps": [
    {
     "label": {
-     "zh": "score：Instagram 旅帖草稿 — 40 分",
-     "en": "score: Instagram travel draft — 40"
+     "zh": "score：Instagram 旅帖原始草稿 — 40 分",
+     "en": "score: raw Instagram travel draft — 40"
     },
     "body": {
-     "zh": "离线零模型调用，秒出：87 词的草稿命中 7 条 tell（搭配迁移/语序迁移/客气套话/AI 腔四类都有），母语感 40 分。每条命中带严重度与原文定位。",
-     "en": "Offline and instant: an 87-word draft hits 7 tells across all four categories, native-tone 40. Every hit carries severity and location."
+     "zh": "离线零模型调用，秒出：87 词的原始草稿命中 7 条 tell（搭配迁移/语序迁移/客气套话/AI 腔四类都有），母语感 40 分。每条命中带严重度与原文定位。",
+     "en": "Offline and instant: the 87-word raw draft hits 7 tells across all four categories, native-tone 40. Every hit carries severity and location."
     },
     "image": "/assets/presentation/demo-0-light.svg",
     "imageDark": "/assets/presentation/demo-0-dark.svg",
-    "command": "muyu score examples/before-after-1.md",
-    "output": "muyu score — examples/before-after-1.md                     \n┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓\n┃ native-to… ┃ words ┃ tells ┃ ai-cadence ┃ collocat… ┃ politeness ┃ word-ord… ┃\n┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩\n│         63 │   181 │     9 │          2 │         2 │          2 │         3 │\n└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  rhetorical-opener  Have you ever wondered  (severity 2)\n  broaden-eyes  broaden my eyes  (severity 3)\n  very-like  I very like  (severity 3)\n  although-but  Although it was raining, but  (severity 2)\n  everyday-adverb  Everyday I  (severity 2)\n  wish-you-good-day  Wish you a good day  (severity 1)\n\nsegment 7\n  broaden-eyes  broaden my eyes  (severity 3)\n  wish-you-good-day  wish you a good day  (severity 1)\n\nrun `muyu rewrite <file> --platform instagram|tiktok|substack` to fix"
+    "command": "muyu score examples/draft-1.md",
+    "output": "muyu score — examples/draft-1.md                        \n┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓\n┃ native-to… ┃ words ┃ tells ┃ ai-cadence ┃ collocat… ┃ politeness ┃ word-ord… ┃\n┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩\n│         40 │    87 │     7 │          2 │         1 │          1 │         3 │\n└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘\n\nsegment 1\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  rhetorical-opener  Have you ever wondered  (severity 2)\n  broaden-eyes  broaden my eyes  (severity 3)\n  very-like  I very like  (severity 3)\n  although-but  Although it was raining, but  (severity 2)\n  everyday-adverb  Everyday I  (severity 2)\n  wish-you-good-day  Wish you a good day  (severity 1)\n\nrun `muyu rewrite <file> --platform instagram|tiktok|substack` to fix"
    },
    {
     "label": {
-     "zh": "score：Substack 长文草稿 — 52 分",
-     "en": "score: Substack essay draft — 52"
+     "zh": "score：Substack 长文原始草稿 — 52 分",
+     "en": "score: raw Substack essay draft — 52"
     },
     "body": {
-     "zh": "议论文式开场与连接词链条（As we all know / Moreover / Furthermore）、AI 对仗句、三类客气套话——9 条 tell，52 分。",
-     "en": "Essay-style openers and transition chains (As we all know, Moreover, Furthermore), AI parallelism, three politeness formulas - 9 tells, score 52."
+     "zh": "议论文式开场与连接词链条（As we all know / Moreover / Furthermore）、AI 对仗句、三类客气套话——116 词命中 9 条 tell，52 分。",
+     "en": "Essay-style openers and transition chains (As we all know, Moreover, Furthermore), AI parallelism, three politeness formulas - 9 tells in 116 words, score 52."
     },
     "image": "/assets/presentation/demo-1-light.svg",
     "imageDark": "/assets/presentation/demo-1-dark.svg",
-    "command": "muyu score examples/before-after-2.md",
-    "output": "muyu score — examples/before-after-2.md                \n┏━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┓\n┃ native-tone ┃ words ┃ tells ┃ ai-cadence ┃ politeness ┃ word-order ┃\n┡━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━┩\n│          65 │   249 │    14 │          7 │          6 │          1 │\n└─────────────┴───────┴───────┴────────────┴────────────┴────────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  not-just-x  It's not just a language problem, it's a  (severity 2)\n  transition-chain  Moreover  (severity 1)\n  transition-chain  Furthermore  (severity 1)\n  please-kindly  Please kindly  (severity 3)\n  as-we-all-know  As we all know  (severity 2)\n\nsegment 4\n  in-conclusion-formal  In conclusion  (severity 1)\n  although-but  Although these tips are simple, but  (severity 2)\n  thank-understanding  Thank you for your understanding  (severity 2)\n\nsegment 8\n  transition-chain  Moreover  (severity 1)\n  transition-chain  Furthermore  (severity 1)\n  please-kindly  Please kindly  (severity 3)\n  thank-understanding  Thank you for your understanding  (severity 2)\n  as-we-all-know  As we all know  (severity 2)\n\nrun `muyu rewrite <file> --platform instagram|tiktok|substack` to fix"
+    "command": "muyu score examples/draft-2.md",
+    "output": "muyu score — examples/draft-2.md                   \n┏━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┓\n┃ native-tone ┃ words ┃ tells ┃ ai-cadence ┃ politeness ┃ word-order ┃\n┡━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━┩\n│          52 │   116 │     9 │          5 │          3 │          1 │\n└─────────────┴───────┴───────┴────────────┴────────────┴────────────┘\n\nsegment 1\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  not-just-x  It's not just a language problem, it's a  (severity 2)\n  transition-chain  Moreover  (severity 1)\n  transition-chain  Furthermore  (severity 1)\n  please-kindly  Please kindly  (severity 3)\n  as-we-all-know  As we all know  (severity 2)\n\nsegment 2\n  in-conclusion-formal  In conclusion  (severity 1)\n  although-but  Although these tips are simple, but  (severity 2)\n  thank-understanding  Thank you for your understanding  (severity 2)\n\nrun `muyu rewrite <file> --platform instagram|tiktok|substack` to fix"
    },
    {
     "label": {
-     "zh": "check：改写稿复检 — delta 可验证",
-     "en": "check: re-score the rewrite — verifiable delta"
+     "zh": "check：改写稿 native-1.md 复检 — delta 可验证",
+     "en": "check: re-score the rewritten native-1.md — verifiable delta"
     },
     "body": {
-     "zh": "复检走同一个评分器：与基线 40 相比的提升量直接给出。改写是不是真的更母语，看数字不看感觉。",
-     "en": "The same scorer re-scores the rewrite and reports the delta against your baseline. Improvement is a number, not a vibe."
+     "zh": "复检走同一个评分器，量的是改写稿本身（不是带原文的报告）：母语感 100 分，对基线 40 给出 +60。改写是不是真的更母语，看数字不看感觉。",
+     "en": "The same scorer re-scores the rewrite itself (not the report, which still carries the original): native-tone 100, +60 against the baseline 40. Improvement is a number, not a vibe."
     },
     "image": "/assets/presentation/demo-2-light.svg",
     "imageDark": "/assets/presentation/demo-2-dark.svg",
-    "command": "muyu check examples/before-after-1.md --baseline 40",
-    "output": "muyu score — examples/before-after-1.md                     \n┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓\n┃ native-to… ┃ words ┃ tells ┃ ai-cadence ┃ collocat… ┃ politeness ┃ word-ord… ┃\n┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩\n│         63 │   181 │     9 │          2 │         2 │          2 │         3 │\n└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘\n\nsegment 3\n  fast-paced-world  In today's fast-paced world  (severity 2)\n  rhetorical-opener  Have you ever wondered  (severity 2)\n  broaden-eyes  broaden my eyes  (severity 3)\n  very-like  I very like  (severity 3)\n  although-but  Although it was raining, but  (severity 2)\n  everyday-adverb  Everyday I  (severity 2)\n  wish-you-good-day  Wish you a good day  (severity 1)\n\nsegment 7\n  broaden-eyes  broaden my eyes  (severity 3)\n  wish-you-good-day  wish you a good day  (severity 1)\n\ndelta vs baseline 40: +23"
+    "command": "muyu check examples/native-1.md --baseline 40",
+    "output": "muyu score —          \n     examples/native-1.md      \n┏━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┓\n┃ native-tone ┃ words ┃ tells ┃\n┡━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━┩\n│         100 │    55 │     0 │\n└─────────────┴───────┴───────┘\n\ndelta vs baseline 40: +60"
    },
    {
     "label": {

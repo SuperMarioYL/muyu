@@ -5,6 +5,9 @@ weight is its severity (1-3). Repeated runs on the same text are stable by
 construction (pure regex over static data). The 3.5 constant is calibrated so
 the shipped examples/before-after-*.md "before" drafts (7-9 tells per 60-120
 words) land in the 44-56 band and native-voice "after" drafts score 100.
+
+Input contract: the density is per 100 *English* words, so a draft with no
+English words is refused rather than scored (see `score_text`).
 """
 
 from __future__ import annotations
@@ -113,6 +116,15 @@ def _words(text: str) -> int:
 
 def score_text(text: str, tells: list[Tell] | None = None) -> ScoreReport:
     tells = tells or load_tells()
+    words = _words(text)
+    if not words:
+        # The score is "tells per 100 words", so a draft with no English words has
+        # no measurable value: every hit-free input would come out at a perfect 100
+        # (density 0). Refuse it instead of reporting a score nobody can act on.
+        raise SystemExit(
+            "nothing to score: no English words found. muyu scores an English draft "
+            "(or a zh/en mix) — an empty file or a Chinese-only draft cannot be scored."
+        )
     segments = [SegmentReport(index=i, text=seg) for i, seg in enumerate(split_segments(text))]
     all_hits: list[Hit] = []
     by_category: dict[str, int] = {}
@@ -130,7 +142,7 @@ def score_text(text: str, tells: list[Tell] | None = None) -> ScoreReport:
                 seg.hits.append(hit)
                 all_hits.append(hit)
                 by_category[tell.category] = by_category.get(tell.category, 0) + 1
-    words = _words(text) or 1
+    words = _words(text)
     density = sum(h.severity for h in all_hits) / words * 100.0
     score = max(0, min(100, round(100 - density * PENALTY_PER_UNIT)))
     return ScoreReport(

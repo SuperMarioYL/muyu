@@ -34,11 +34,14 @@ muyu score draft.md
 # 2. 改写 —— 需要一个 OpenAI 兼容端点（DeepSeek/Qwen/GLM/Kimi 预设）
 export MUYU_PRESET=deepseek
 export MUYU_API_KEY=sk-...
-muyu rewrite draft.md --platform substack --lock "Muyu" --out rewrite.md
+muyu rewrite draft.md --platform substack --lock "Muyu" \
+  --out report.md --out-rewrite draft.native.md
 
-# 3. 复检 —— 验证改写前后的母语感差
-muyu check rewrite.md --baseline 40
+# 3. 复检 —— 验证改写前后的母语感差（复检改写稿本身）
+muyu check draft.native.md --baseline 40
 ```
+
+`--out` 写的是 before/after 对照报告（含原文），复检要用 `--out-rewrite` 写出的改写稿——否则复检量到的是报告里残留的原文。
 
 没有 API Key 也能完整走通「打分 → 复检」闭环（本页演示就是离线录制的）。
 
@@ -48,7 +51,7 @@ muyu check rewrite.md --baseline 40
   <img src="docs/assets/demo-muyu-score.gif" width="960" alt="muyu score / check 离线实跑：tell 报告、0-100 母语感分、分类计数与 presets 列表。">
 </p>
 
-三组真实改写样例（改写输出 + 每条 tell 的中文解释）在 [`examples/`](./examples/)：[Instagram 旅帖](./examples/before-after-1.md) · [Substack 长文](./examples/before-after-2.md) · [TikTok 文案](./examples/before-after-3.md)。样例附母语者盲测协议（[`examples/README.md`](./examples/README.md)）。
+三组真实改写样例（改写输出 + 每条 tell 的中文解释）在 [`examples/`](./examples/)：[Instagram 旅帖](./examples/before-after-1.md) · [Substack 长文](./examples/before-after-2.md) · [TikTok 文案](./examples/before-after-3.md)。原始草稿与母语者改写稿分别是 [`examples/draft-*.md`](./examples/draft-1.md) 与 [`examples/native-*.md`](./examples/native-1.md)——上面的演示记录就是直接对这两个文件跑出来的。样例附母语者盲测协议（[`examples/README.md`](./examples/README.md)）。
 
 ## 工作原理
 
@@ -75,7 +78,7 @@ muyu check rewrite.md --baseline 40
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/presentation/integrations-dark.svg">
-    <img src="assets/presentation/integrations-light.svg" width="960" alt="v0.1.0 内置端点预设与平台风格包。">
+    <img src="assets/presentation/integrations-light.svg" width="960" alt="v0.2.0 内置端点预设与平台风格包。">
   </picture>
 </p>
 
@@ -89,6 +92,8 @@ muyu check rewrite.md --baseline 40
 | DeepSeek / Qwen / GLM / Kimi 端点预设 | ✅ v0.1.0 |
 | `--lock` 逐字锁定（品牌名/链接） | ✅ v0.1.0 |
 | before/after + 分类 delta 报告 | ✅ v0.1.0 |
+| `--out-rewrite` 输出改写稿，复检真正量到改写 | ✅ v0.2.0 |
+| 空稿 / 中文稿拒绝打分（不再报 100 分） | ✅ v0.2.0 |
 | 自动发布到任何平台 | ❌ 永远不做（边界） |
 | 整篇中文代写/翻译 | ❌ 编辑不是代写 |
 | 语法纠错 | ❌ 那是 Grammarly 的地盘 |
@@ -115,16 +120,17 @@ preset: deepseek      # deepseek | qwen | glm | kimi | custom
 
 ## 路线图
 
-- **v0.1.x**：补齐三组样例的母语者盲测结果；全流程（含 rewrite）演示 gif
-- **v0.2.0**：品牌音色包（跨系列文风一致）；更多平台包（YouTube 简介 / LinkedIn）
-- **v0.3.0**：tell 库社区共建通道（PR 规则带出处与例句）
+- **v0.2.0（已发布）**：修复已发布闭环的四处缺陷——`--out-rewrite` 让复检真正量到改写稿；空稿/中文稿不再被打成 100 分；演示改为度量草稿本身（40 → 100）；demo CI 的漂移门禁恢复可用
+- **v0.3.0**：品牌音色包（跨系列文风一致）；更多平台包（YouTube 简介 / LinkedIn）——等有真实需求再排
+- **v0.4.0**：tell 库社区共建通道（PR 规则带出处与例句）
+- 待补：三组样例的母语者盲测结果；全流程（含 rewrite）演示 gif
 - 永远不做：自动发布、账号托管、灰产批量改写
 
 ## 开发
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -e . pytest
-.venv/bin/python -m pytest -q          # 12 tests
+.venv/bin/python -m pytest -q          # 22 tests
 python3 docs/record_demo_results.py    # 再生成 docs/demo-results.json
 python3 docs/render_presentation.py --repo .   # 再生成 README SVG
 ```

@@ -1,0 +1,1 @@
+Rain in Kyoto, and the temples somehow get better. I kept drifting back to these quiet morning streets — camera out every day, lunch for 500 yen. Ever wonder how the old city survived intact? Slowing down is the whole point. It changed how I see my own neighborhood back home. Already planning the return trip.

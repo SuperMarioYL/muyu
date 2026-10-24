@@ -6,13 +6,13 @@ Set Width 1180
 Set Height 740
 Set FontSize 17
 Set Padding 8
-Type "muyu score examples/before-after-1.md"
+Type "muyu score examples/draft-1.md"
 Enter
 Sleep 2s
-Type "muyu score examples/before-after-2.md"
+Type "muyu score examples/draft-2.md"
 Enter
 Sleep 2s
-Type "muyu check examples/before-after-1.md --baseline 40"
+Type "muyu check examples/native-1.md --baseline 40"
 Enter
 Sleep 2s
 Type "muyu presets"
